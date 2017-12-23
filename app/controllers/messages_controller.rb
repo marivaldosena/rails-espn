@@ -26,6 +26,30 @@ class MessagesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    respond_to do |format|
+      if @message.update(message_params)
+        format.html { redirect_to messages_path, notice: 'Message was updated successfully!' }
+        format.json { render json: :show, status: :ok, location: @message }
+      else
+        format.html { render :edit }
+        format.json { render json: @message.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @message.destroy
+
+    respond_to do |format|
+      format.html { redirect_to messages_path, notice: 'Message was deleted successfully!' }
+      format.json { render json: @message.errors, status: :no_content }
+    end
+  end
+
   private
 
     def message_params
