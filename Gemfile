@@ -50,3 +50,6 @@ gem 'simple_form', '~> 3.2'
 
 # Bootstrap SASS
 gem 'bootstrap-sass', '~> 3.3.4.1'
+
+# Devise
+gem 'devise', '~> 3.4.1'
